@@ -10,6 +10,11 @@
       "StackName": "amplify-reactnativeboilerpla-dev-134546",
       "StackId": "arn:aws:cloudformation:ap-northeast-1:427430111868:stack/amplify-reactnativeboilerpla-dev-134546/c9c66cd0-1f4d-11ec-867d-0e1740f2d965",
       "AmplifyAppId": "d1vfqe1d174myb"
+    },
+    "categories": {
+      "auth": {
+        "reactnativeboilerpla9f741283": {}
+      }
     }
   }
 }

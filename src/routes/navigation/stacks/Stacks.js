@@ -8,6 +8,10 @@ import Config from 'scenes/config'
 import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
 
+import SignIn from '../../../screens/SignIn'
+import SignUp from '../../../screens/SignUp'
+import ConfirmSignUp from '../../../screens/ConfirmSignUp'
+
 // ------------------------------------
 // Constants
 // ------------------------------------
@@ -23,6 +27,27 @@ const navigationProps = {
 // ------------------------------------
 // Navigators
 // ------------------------------------
+
+export const SignInNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="SignIn"
+    headerMode="none"
+    screenOptions={navigationProps}
+  >
+    <Stack.Screen
+      name="SignIn"
+      component={SignIn}
+    />
+    <Stack.Screen
+      name="SignUp"
+      component={SignUp}
+    />
+    <Stack.Screen
+      name="ConfirmSignUp"
+      component={ConfirmSignUp}
+    />
+  </Stack.Navigator>
+)
 
 export const HomeNavigator = () => (
   <Stack.Navigator
