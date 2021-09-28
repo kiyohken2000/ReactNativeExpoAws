@@ -1,13 +1,36 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import DrawerNavigator from './drawer'
-import { withAuthenticator } from 'aws-amplify-react-native'
+import { Auth } from 'aws-amplify';
 import { SignInNavigator } from './stacks'
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
+import { auth } from '../../slices/app.slice';
 
-function Main() {
+export default function Main() {
+  const dispatch = useDispatch()
   const isSignIn = useSelector((state) => state.app.authState)
-  console.log(isSignIn)
+
+  useEffect(() => {
+    checkAuthState()
+    userInfo()
+  }, [])
+
+  const checkAuthState = async() => {
+    try {
+      await Auth.currentAuthenticatedUser()
+      dispatch(auth({ authState: true }))
+    } catch (error) {
+      console.log('User is not signed in:', error)
+      dispatch(auth({ authState: false })) 
+    }
+  }
+
+  const userInfo = async() => {
+    const info = await Auth.currentUserInfo()
+    const more = await Auth.currentAuthenticatedUser()
+    console.log('user info:', info)
+  }
+
   return (
     <NavigationContainer>
       {isSignIn?
@@ -17,6 +40,3 @@ function Main() {
     </NavigationContainer>
   )
 }
-
-// export default withAuthenticator(Main)
-export default Main
