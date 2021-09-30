@@ -1,12 +1,15 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { colors } from 'theme'
+
+import HeaderLeft from './HeaderLeft'
+import HeaderTitle from './HeaderTitle'
+
 import Home from 'scenes/home'
 import Profile from 'scenes/profile'
 import Details from 'scenes/details'
 import Config from 'scenes/config'
-import HeaderLeft from './HeaderLeft'
-import HeaderTitle from './HeaderTitle'
+import Chat from 'scenes/chat'
 
 import SignIn from '../../../screens/SignIn'
 import SignUp from '../../../screens/SignUp'
@@ -112,6 +115,24 @@ export const ConfigNavigator = () => (
       component={Config}
       options={({ navigation }) => ({
         title: 'Config',
+        headerLeft: () => <HeaderLeft navigation={navigation} />,
+        headerTitle: () => <HeaderTitle />,
+      })}
+    />
+  </Stack.Navigator>
+)
+
+export const ChatNavigator = () => (
+  <Stack.Navigator
+    initialRouteName="Chat"
+    headerMode="screen"
+    screenOptions={navigationProps}
+  >
+    <Stack.Screen
+      name="Chat"
+      component={Chat}
+      options={({ navigation }) => ({
+        title: 'Chat',
         headerLeft: () => <HeaderLeft navigation={navigation} />,
         headerTitle: () => <HeaderTitle />,
       })}

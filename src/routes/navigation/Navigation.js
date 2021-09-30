@@ -4,7 +4,7 @@ import DrawerNavigator from './drawer'
 import { Auth } from 'aws-amplify';
 import { SignInNavigator } from './stacks'
 import { useSelector, useDispatch } from "react-redux"
-import { auth } from '../../slices/app.slice';
+import { auth, userData } from '../../slices/app.slice';
 
 export default function Main() {
   const dispatch = useDispatch()
@@ -28,7 +28,7 @@ export default function Main() {
   const userInfo = async() => {
     const info = await Auth.currentUserInfo()
     const more = await Auth.currentAuthenticatedUser()
-    console.log('user info:', info)
+    dispatch(userData({ me: info }))
   }
 
   return (

@@ -5,7 +5,7 @@ import FontIcon from 'react-native-vector-icons/FontAwesome5'
 import { colors } from 'theme'
 
 // stack navigators
-import { HomeNavigator, ProfileNavigator, ConfigNavigator } from '../stacks'
+import { HomeNavigator, ProfileNavigator, ConfigNavigator, ChatNavigator } from '../stacks'
 
 const Tab = createBottomTabNavigator()
 
@@ -42,6 +42,15 @@ const TabNavigator = () => (
                 solid
               />
             )
+          case 'Chat':
+            return (
+              <FontIcon
+                name="at"
+                color={focused ? colors.lightPurple : colors.gray}
+                size={20}
+                solid
+              />
+            )
           default:
             return <View />
         }
@@ -58,12 +67,13 @@ const TabNavigator = () => (
         // paddingTop: 5,
       },
     }}
-    initialRouteName="Config"
+    initialRouteName="Chat"
     swipeEnabled={false}
   >
     <Tab.Screen name="Home" component={HomeNavigator} />
     <Tab.Screen name="Profile" component={ProfileNavigator} />
     <Tab.Screen name="Config" component={ConfigNavigator} />
+    <Tab.Screen name="Chat" component={ChatNavigator} />
   </Tab.Navigator>
 )
 

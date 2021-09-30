@@ -1,5 +1,11 @@
 {
   "AppSyncApiName": "reactnativeboilerpla",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authreactnativeboilerpla9f741283",
+      "Outputs.UserPoolId"
+    ]
+  }
 }

@@ -9,6 +9,7 @@ const initialState = {
   checked: false,
   loggedIn: false,
   authState: false,
+  me: {}
 }
 
 // ------------------------------------
@@ -26,10 +27,13 @@ const appSlice = createSlice({
     auth: (state, { payload }) => {
       state.authState = payload.authState
     },
+    userData: (state, { payload }) => {
+      state.me = payload.me
+    }
   },
 })
 
 export const { action } = appSlice
-export const { authenticate, auth } = appSlice.actions
+export const { authenticate, auth, userData } = appSlice.actions
 
 export default appSlice.reducer

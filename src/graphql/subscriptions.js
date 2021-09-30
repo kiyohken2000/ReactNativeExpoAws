@@ -34,3 +34,153 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
+export const onCreateRoom = /* GraphQL */ `
+  subscription OnCreateRoom {
+    onCreateRoom {
+      id
+      title
+      avatar
+      messages {
+        items {
+          id
+          type
+          content
+          when
+          roomId
+          owner
+          timestamp
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateRoom = /* GraphQL */ `
+  subscription OnUpdateRoom {
+    onUpdateRoom {
+      id
+      title
+      avatar
+      messages {
+        items {
+          id
+          type
+          content
+          when
+          roomId
+          owner
+          timestamp
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteRoom = /* GraphQL */ `
+  subscription OnDeleteRoom {
+    onDeleteRoom {
+      id
+      title
+      avatar
+      messages {
+        items {
+          id
+          type
+          content
+          when
+          roomId
+          owner
+          timestamp
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateMessage = /* GraphQL */ `
+  subscription OnCreateMessage {
+    onCreateMessage {
+      id
+      type
+      content
+      when
+      roomId
+      owner
+      timestamp
+      room {
+        id
+        title
+        avatar
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateMessage = /* GraphQL */ `
+  subscription OnUpdateMessage {
+    onUpdateMessage {
+      id
+      type
+      content
+      when
+      roomId
+      owner
+      timestamp
+      room {
+        id
+        title
+        avatar
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteMessage = /* GraphQL */ `
+  subscription OnDeleteMessage {
+    onDeleteMessage {
+      id
+      type
+      content
+      when
+      roomId
+      owner
+      timestamp
+      room {
+        id
+        title
+        avatar
+        messages {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
