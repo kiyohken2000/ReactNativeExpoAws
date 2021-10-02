@@ -184,3 +184,39 @@ export const onDeleteMessage = /* GraphQL */ `
     }
   }
 `;
+export const onCreateProfile = /* GraphQL */ `
+  subscription OnCreateProfile {
+    onCreateProfile {
+      id
+      name
+      avatar
+      description
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateProfile = /* GraphQL */ `
+  subscription OnUpdateProfile {
+    onUpdateProfile {
+      id
+      name
+      avatar
+      description
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteProfile = /* GraphQL */ `
+  subscription OnDeleteProfile {
+    onDeleteProfile {
+      id
+      name
+      avatar
+      description
+      createdAt
+      updatedAt
+    }
+  }
+`;

@@ -37,3 +37,10 @@ type Message
   timestamp: AWSTimestamp!
   room: Room @connection(name: "RoomMessages", keyField: "roomId")
 }
+
+type Profile @model {
+  id: ID!
+  name: String!
+  avatar: String!
+  description: String
+}

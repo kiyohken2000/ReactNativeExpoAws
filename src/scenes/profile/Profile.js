@@ -1,10 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import {
-  StyleSheet, Text, View, StatusBar,
-} from 'react-native'
-import Button from 'components/Button'
+import { StyleSheet, Text, View, StatusBar } from 'react-native'
 import { colors } from 'theme'
+import { useSelector } from "react-redux"
+
+export default function Profile() {
+  const user = useSelector((state) => state.app.profile)
+
+  return (
+    <View style={styles.root}>
+      <StatusBar barStyle="light-content" />
+      <Text style={styles.title}>{user.name}</Text>
+    </View>
+  )
+}
 
 const styles = StyleSheet.create({
   root: {
@@ -19,28 +27,3 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 })
-
-const Profile = ({ navigation }) => (
-  <View style={styles.root}>
-    <StatusBar barStyle="light-content" />
-    <Text style={styles.title}>Profile</Text>
-    <Button
-      title="Go to Details"
-      color="white"
-      backgroundColor={colors.lightPurple}
-      onPress={() => {
-        navigation.navigate('Details', { from: 'Profile' })
-      }}
-    />
-  </View>
-)
-
-Profile.propTypes = {
-  navigation: PropTypes.shape({ navigate: PropTypes.func }),
-}
-
-Profile.defaultProps = {
-  navigation: { navigate: () => null },
-}
-
-export default Profile

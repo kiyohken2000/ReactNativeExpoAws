@@ -106,7 +106,7 @@ export default function Chat() {
             color: '#000000'
           },
           right: {
-            color: '#fff'
+            color: 'white'
           },
         }}
       />
