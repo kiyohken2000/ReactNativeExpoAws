@@ -6,8 +6,9 @@ import HeaderLeft from './HeaderLeft'
 import HeaderTitle from './HeaderTitle'
 
 import Home from 'scenes/home'
-import Profile from 'scenes/profile'
 import Details from 'scenes/details'
+import Profile from 'scenes/profile'
+import Edit from 'scenes/edit'
 import Config from 'scenes/config'
 import Chat from 'scenes/chat'
 
@@ -95,10 +96,10 @@ export const ProfileNavigator = () => (
       })}
     />
     <Stack.Screen
-      name="Details"
-      component={Details}
+      name="Edit"
+      component={Edit}
       options={{
-        title: 'Details',
+        title: 'Edit',
       }}
     />
   </Stack.Navigator>

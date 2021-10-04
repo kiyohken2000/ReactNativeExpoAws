@@ -5,9 +5,10 @@ import { Auth } from 'aws-amplify';
 import { SignInNavigator } from './stacks'
 import { useSelector, useDispatch } from "react-redux"
 import { auth, userData, userProfile } from '../../slices/app.slice'
-import Amplify, { API, graphqlOperation } from "aws-amplify"
-import { getProfile } from '../../graphql/queries';
-import { createProfile } from '../../graphql/mutations';
+import { API, graphqlOperation } from "aws-amplify"
+import { getProfile } from '../../graphql/queries'
+import { createProfile } from '../../graphql/mutations'
+import { defaultAvatar } from '../../key/key';
 
 export default function Main() {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ export default function Main() {
 
   useEffect(() => {
     fetchData()
-  }, [me])
+  }, [me, isSignIn])
 
   const checkAuthState = async() => {
     try {
@@ -50,7 +51,7 @@ export default function Main() {
       const input = {
         id: me.id,
         name: me.username,
-        avatar: 'https://i.imgur.com/9b8l2kT.jpg',
+        avatar: defaultAvatar,
         description: me.attributes.email
       }
       await API.graphql(graphqlOperation(createProfile, { input }))

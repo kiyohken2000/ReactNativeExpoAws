@@ -1,6 +1,6 @@
 {
     "identityPoolName": "reactnativeboilerpla9f741283_identitypool_9f741283",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "reactn9f741283",
     "userPoolName": "reactnativeboilerpla9f741283_userpool_9f741283",
     "autoVerifiedAttributes": [

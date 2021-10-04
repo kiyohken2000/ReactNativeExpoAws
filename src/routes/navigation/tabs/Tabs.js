@@ -67,7 +67,7 @@ const TabNavigator = () => (
         // paddingTop: 5,
       },
     }}
-    initialRouteName="Chat"
+    initialRouteName="Profile"
     swipeEnabled={false}
   >
     <Tab.Screen name="Home" component={HomeNavigator} />

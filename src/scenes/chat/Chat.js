@@ -11,6 +11,7 @@ import * as subscriptions from "../../graphql/subscriptions"
 
 export default function Chat() {
   const user = useSelector((state) => state.app.me)
+  const userData = useSelector((state) => state.app.profile)
   const [messages, setMessages] = useState([])
   const roomId = 'chatRoom'
 
@@ -29,7 +30,7 @@ export default function Chat() {
           _id: m.id,
           createdAt: m.createdAt,
           text: m.content,
-          user: { _id: m.owner, name: m.owner },
+          user: { _id: m.owner, name: userData.name, avatar:userData.avatar },
         };
         setMessages((previousMessages) =>
           GiftedChat.append(previousMessages, [message])
@@ -120,6 +121,7 @@ export default function Chat() {
         messages={messages}
         placeholder="Type your message here"
         onSend={messages => onSend(messages)}
+        renderUsernameOnMessage={true}
         user={{
           _id: user.username,
           name: user.username
