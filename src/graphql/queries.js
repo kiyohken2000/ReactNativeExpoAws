@@ -44,6 +44,8 @@ export const getRoom = /* GraphQL */ `
           when
           roomId
           owner
+          name
+          avatar
           timestamp
           createdAt
           updatedAt
@@ -85,6 +87,8 @@ export const getMessage = /* GraphQL */ `
       when
       roomId
       owner
+      name
+      avatar
       timestamp
       room {
         id
@@ -115,6 +119,8 @@ export const listMessages = /* GraphQL */ `
         when
         roomId
         owner
+        name
+        avatar
         timestamp
         room {
           id
@@ -185,6 +191,8 @@ export const byTimestamp = /* GraphQL */ `
         when
         roomId
         owner
+        name
+        avatar
         timestamp
         room {
           id

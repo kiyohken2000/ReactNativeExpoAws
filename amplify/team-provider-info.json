@@ -18,7 +18,7 @@
       "function": {
         "S3Trigger25115a12": {
           "deploymentBucketName": "amplify-reactnativeboilerpla-dev-134546-deployment",
-          "s3Key": "amplify-builds/S3Trigger25115a12-57637163743656574f78-build.zip"
+          "s3Key": "amplify-builds/S3Trigger25115a12-757776764e4d5165544b-build.zip"
         }
       }
     }

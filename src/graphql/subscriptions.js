@@ -48,6 +48,8 @@ export const onCreateRoom = /* GraphQL */ `
           when
           roomId
           owner
+          name
+          avatar
           timestamp
           createdAt
           updatedAt
@@ -73,6 +75,8 @@ export const onUpdateRoom = /* GraphQL */ `
           when
           roomId
           owner
+          name
+          avatar
           timestamp
           createdAt
           updatedAt
@@ -98,6 +102,8 @@ export const onDeleteRoom = /* GraphQL */ `
           when
           roomId
           owner
+          name
+          avatar
           timestamp
           createdAt
           updatedAt
@@ -118,6 +124,8 @@ export const onCreateMessage = /* GraphQL */ `
       when
       roomId
       owner
+      name
+      avatar
       timestamp
       room {
         id
@@ -143,6 +151,8 @@ export const onUpdateMessage = /* GraphQL */ `
       when
       roomId
       owner
+      name
+      avatar
       timestamp
       room {
         id
@@ -168,6 +178,8 @@ export const onDeleteMessage = /* GraphQL */ `
       when
       roomId
       owner
+      name
+      avatar
       timestamp
       room {
         id

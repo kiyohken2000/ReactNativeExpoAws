@@ -30,7 +30,7 @@ export default function Chat() {
           _id: m.id,
           createdAt: m.createdAt,
           text: m.content,
-          user: { _id: m.owner, name: userData.name, avatar:userData.avatar },
+          user: { _id: m.owner, name: m.name, avatar:m.avatar },
         };
         setMessages((previousMessages) =>
           GiftedChat.append(previousMessages, [message])
@@ -59,7 +59,8 @@ export default function Chat() {
             createdAt: new Date(m.when),
             user: {
               _id: m.owner,
-              name: m.owner,
+              name: m.name,
+              avatar: m.avatar
             },
           }))
         )
@@ -75,6 +76,8 @@ export default function Chat() {
         roomId: roomId,
         when: String(new Date()),
         timestamp: date.getTime(),
+        name: userData.name,
+        avatar: userData.avatar
       },
     };
     await API.graphql(graphqlOperation(mutations.createMessage, variables));
